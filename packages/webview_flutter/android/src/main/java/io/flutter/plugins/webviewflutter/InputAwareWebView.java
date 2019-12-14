@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 
+import io.flutter.plugin.common.PluginRegistry;
+import android.content.Intent;
+
 /**
  * A WebView subclass that mirrors the same implementation hacks that the system WebView does in
  * order to correctly create an InputConnection.
@@ -23,6 +26,7 @@ import android.webkit.WebView;
  * <p>See also {@link ThreadedInputConnectionProxyAdapterView}.
  */
 final class InputAwareWebView extends WebView {
+  
   private static final String TAG = "InputAwareWebView";
   private View threadedInputConnectionProxyView;
   private ThreadedInputConnectionProxyAdapterView proxyAdapterView;
