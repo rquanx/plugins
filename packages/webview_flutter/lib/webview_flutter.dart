@@ -134,6 +134,8 @@ class WebView extends StatefulWidget {
     Key key,
     this.onWebViewCreated,
     this.initialUrl,
+    this.local,
+    this.localScope,
     this.javascriptMode = JavascriptMode.disabled,
     this.javascriptChannels,
     this.navigationDelegate,
@@ -196,6 +198,10 @@ class WebView extends StatefulWidget {
 
   /// The initial URL to load.
   final String initialUrl;
+
+  final bool local;
+
+  final String localScope;
 
   /// Whether Javascript execution is enabled.
   final JavascriptMode javascriptMode;
@@ -364,6 +370,8 @@ CreationParams _creationParamsfromWidget(WebView widget) {
     javascriptChannelNames: _extractChannelNames(widget.javascriptChannels),
     userAgent: widget.userAgent,
     autoMediaPlaybackPolicy: widget.initialMediaPlaybackPolicy,
+    local: widget.local,
+    localScope: widget.localScope
   );
 }
 
@@ -373,6 +381,7 @@ WebSettings _webSettingsFromWidget(WebView widget) {
     hasNavigationDelegate: widget.navigationDelegate != null,
     debuggingEnabled: widget.debuggingEnabled,
     userAgent: WebSetting<String>.of(widget.userAgent),
+    
   );
 }
 
